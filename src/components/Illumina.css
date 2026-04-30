@@ -4,7 +4,11 @@
   background:
     radial-gradient(circle at top left, rgba(74, 144, 226, 0.18), transparent 32rem),
     linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
+  /*background-image: url('../../public/space.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;*/
   color: #172033;
+  
 }
 
 .simulation-hero {
@@ -12,8 +16,7 @@
   margin: 0 auto 4rem auto;
   padding: 3rem;
   border-radius: 28px;
-  /*background-image: url('../../public/seasonalSets.png');*/
-  background: rgba(210, 206, 206, 0.78);
+  background: rgba(126, 126, 121, 0.78);
   backdrop-filter: blur(16px);
   box-shadow: 0 24px 70px rgba(30, 55, 90, 0.12);
   text-align: center;
@@ -54,7 +57,7 @@
 .simulation-block {
   padding: 2rem;
   border-radius: 32px;
-  background: rgba(222, 220, 220, 0.72);
+  background: rgba(118, 141, 140, 0.72);
   box-shadow: 0 22px 60px rgba(20, 40, 70, 0.1);
   border: 1px solid rgba(120, 150, 190, 0.18);
 }
@@ -75,8 +78,11 @@
 .simulation-grid,
 .plots-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.3rem;
+  /*grid-template-columns: repeat(2, minmax(0, 1fr));*/
+  gap: 1.1rem;
+  grid-template-columns: 1fr 1fr;   
+  align-items: stretch;
+  padding: 0.5rem;
 }
 
 .result-card,
@@ -85,10 +91,15 @@
   background: #ffffff;
   box-shadow: 0 16px 38px rgba(30, 55, 90, 0.08);
   border: 1px solid rgba(120, 150, 190, 0.16);
+  height: 100%;              /* 👈 forces equal height */
+  display: flex;
+  flex-direction: column;    /* 👈 so content can be controlled inside */
+  padding: 0.1rem;
 }
 
 .result-card {
   padding: 1.5rem;
+  padding-bottom: 0rem;
 }
 
 .result-card h3 {
@@ -103,27 +114,31 @@
 
 .parameter-list {
   display: grid;
-  gap: 0.75rem;
+  gap: 0rem;
   overflow-y: auto;
   height: 16vw;
   scrollbar-width: none;
+  max-height: 100%;
 }
 
 .parameter-row {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #e7edf5;
+  justify-content: space-between;     /*leave space between name and value*/
+  gap: 0rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1d1c1e;
 }
 
 .parameter-row span {
   color: #5c6978;
+  justify-content: left;    /*vertical alignment*/
+  align-items: center;        /*Horizontal alignment*/
 }
 
 .parameter-row strong {
   color: #172033;
-  text-align: right;
+  text-align: left;
+  white-space: pre-line;    /* allow \n */
 }
 
 .plots-grid {
@@ -154,8 +169,10 @@
 }
 
 .simulation-extra {
-  margin-top: 1.3rem;
-  background: linear-gradient(135deg, #ffffff, #f3f8ff);
+  margin-top: 0.8rem;           /* This is a handy css option */
+  background: linear-gradient(45deg, #ffffff, #a2c3c9);
+  margin-bottom: 0rem;
+  padding: 0.7rem;
 }
 
 @media (max-width: 850px) {
@@ -177,7 +194,7 @@
   }
 
   .parameter-row strong {
-    text-align: left;
+    text-align: right;
   }
 }
 
@@ -186,8 +203,12 @@
 .description-content {
   display: flex;
   gap: 1rem;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: left;
   flex-direction: column;       /*organize vertically*/
+  align-content: center;
+  text-align: left;
+  
 }
 
 .preview-image-wrapper {
@@ -265,11 +286,12 @@
 
 .carousel-button {
   border: none;
-  border-radius: 999px;
+  border-radius: 24px;
   padding: 0.85rem 1.2rem;
   background: #172033;
   color: white;
-  font-weight: 700;
+  font-size: 2em;
+  font-weight: bolder;
   cursor: pointer;
   box-shadow: 0 14px 30px rgba(20, 40, 70, 0.18);
   transition: transform 0.2s ease, background 0.2s ease;
@@ -310,4 +332,71 @@
   .carousel-button {
     width: 100%;
   }
+}
+
+/* zoomable plots */
+
+.plot-card.zoomable {
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.plot-image-wrapper {
+  position: relative;
+}
+
+.plot-image-wrapper img {
+  transition: transform 0.35s ease;
+}
+
+.plot-card.zoomable:hover img {
+  transform: scale(1.05);
+}
+
+.plot-image-wrapper .zoom-hint {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.plot-card.zoomable:hover .zoom-hint {
+  opacity: 1;
+}
+
+/* choosable input parameters */
+
+.card-title-row {
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: nowrap;      /* not working! */
+}
+
+.card-title-row h3 {
+  margin: 0;
+}
+
+.season-select {
+  border: 1px solid #d6e0ec;
+  border-radius: 14px;
+  padding: 0.45rem 0.8rem;
+  background: #ffffff;
+  color: #172033;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.season-select:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
 }

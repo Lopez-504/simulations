@@ -45,14 +45,17 @@ export default function SimulationResults() {
       </div>
 
       <div className="simulation-carousel">
-        <button className="carousel-button" onClick={goPrevious}>
-          ←
-        </button>
 
         <article className="simulation-block" id={currentSimulation.id}>
           <div className="simulation-header">
             <p className="simulation-label">
-              Simulation {activeIndex + 1} / {simulations.length}
+              <button className="carousel-button" onClick={goPrevious}>
+                  ◂
+              </button>
+              Simulation {activeIndex + 1} / {simulations.length} 
+              <button className="carousel-button" onClick={goNext}>
+                  ▸
+              </button>
             </p>
             <h2>{currentSimulation.title}</h2>
             <p>{currentSimulation.subtitle}</p>
@@ -140,11 +143,9 @@ export default function SimulationResults() {
           </div>
         </article>
 
-        <button className="carousel-button" onClick={goNext}>
-          →
-        </button>
-      </div>
+{/* Carousel buttons */}
 
+      </div>
       <div className="carousel-dots">
         {simulations.map((sim, index) => (
           <button

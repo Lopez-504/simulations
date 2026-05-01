@@ -49,6 +49,16 @@ export const simulations = [
         ["Ångström Coefficient", "1.3"],
         ["Cloud Base", "None"],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ["Relative Humidity", "20%"],
+        ["Aerosol Optical Depth", "0.08"],
+        ["Ångström Coefficient", "1.3"],
+        ["Cloud Base", "None"],
+        ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ["Relative Humidity", "20%"],
+        ["Aerosol Optical Depth", "0.08"],
+        ["Ångström Coefficient", "1.3"],
+        ["Cloud Base", "None"],
+        ["Ground Reflectance", "80% grass\n20% asphalt"]
       ],
     },
     plots: [
@@ -128,15 +138,15 @@ export const simulations = [
     plots: [
       {
         src: cloudy,
-        caption: "caption",
+        caption: "Diffuse radiance @555nm",
       },
       {
         src: cloudy,
-        caption: "caption",
+        caption: "Diffuse radiance @555nm",
       },
     ],
     extra:
-      "Investigate this white patches, probably artifacts",
+      "Investigate these white patches, probably artifacts",
   },
 ];
 

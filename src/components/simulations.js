@@ -6,7 +6,7 @@ import seasonalset from '/seasonalSets.png'
 import contrastset from '/contrastSims.png'
 import cloudy from '/skyglow-map_workSupCloudy_555.0.png'
 import clear01 from '/skyglow-map_work4_550.0.png'
-import clear02 from '/illumina_domain.png'
+import domain from '/illumina_domain.png'
 
 export const seasons = ["summer", "autumn", "winter", "spring"];
 
@@ -23,42 +23,80 @@ export const simulations = [
     previewImage: seasonalset, 
     parameterSets: {
       summer: [
-        ["Relative Humidity", "20%"],
-        ["Aerosol Optical Depth", "0.08"],
-        ["Ångström Coefficient", "1.3"],
-        ["Cloud Base", "None"],
+        ["Relative Humidity", "15%"],
+        ['Air pressure', '760 hPa'],
+        ["Aerosol Optical Depth", "0.03"],
+        ["Ångström Coefficient", "1.35"],
+        ["Aerosol profile", "D"],
+        ["Aerosol height", "1000 m"],
+        ["Cloud base", "0"],
+        ["Cloud model", "0"],
+        ["Cloud fraction", "0"],
+        ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ['nb_bins', '3'],
+        ['Lambda_min', '510'],
+        ['Lambda_max', '600'],
+        ['Elevation angle', '[2:90:4]'],
+        ['Azimuth angle', '[2:354:8]'],
+        ['Direct fiel of vision', '5 m'],
       ],
       autumn: [
         ["Relative Humidity", "20%"],
-        ["Aerosol Optical Depth", "0.08"],
-        ["Ångström Coefficient", "1.3"],
-        ["Cloud Base", "None"],
+        ['Air pressure', '758 hPa'],
+        ["Aerosol Optical Depth", "0.04"],
+        ["Ångström Coefficient", "1.30"],
+        ["Aerosol profile", "D"],
+        ["Aerosol height", "1500 m"],
+        ["Cloud base", "10000 m"],
+        ["Cloud model", "1"],
+        ["Cloud fraction", "10"],
+        ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ['nb_bins', '3'],
+        ['Lambda_min', '510'],
+        ['Lambda_max', '600'],
+        ['Elevation angle', '[2:90:4]'],
+        ['Azimuth angle', '[2:354:8]'],
+        ['Direct fiel of vision', '5 m'],
       ],
       winter: [
-        ["Relative Humidity", "70%"],
-        ["Aerosol Optical Depth", "0.08"],
-        ["Ångström Coefficient", "1.3"],
-        ["Cloud Base", "None"],
-        ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ["Relative Humidity", "30%"],
+        ['Air pressure', '753 hPa'],
+        ["Aerosol Optical Depth", "0.05"],
+        ["Ångström Coefficient", "1.20"],
+        ["Aerosol profile", "D"],
+        ["Aerosol height", "1800 m"],
+        ["Cloud base", "9000 m"],
+        ["Cloud model", "1"],
+        ["Cloud fraction", "20"],
+        ['Observer elevation', '15 m'],
+        ["Ground Reflectance", "80% grass\n20% asphalt\n0% snow"],
+        ['nb_bins', '3'],
+        ['Lambda_min', '510'],
+        ['Lambda_max', '600'],
+        ['Elevation angle', '[2:90:4]'],
+        ['Azimuth angle', '[2:354:8]'],
+        ['Direct fiel of vision', '5 m'],
       ],
       spring: [
-        ["Relative Humidity", "20%"],
-        ["Aerosol Optical Depth", "0.08"],
-        ["Ångström Coefficient", "1.3"],
-        ["Cloud Base", "None"],
+        ["Relative Humidity", "25%"],
+        ['Air pressure', '756 hPa'],
+        ["Aerosol Optical Depth", "0.06"],
+        ["Ångström Coefficient", "1.40"],
+        ["Aerosol profile", "D"],
+        ["Aerosol height", "2000 m"],
+        ["Cloud base", "10000 m"],
+        ["Cloud model", "1"],
+        ["Cloud fraction", "5"],
+        ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
-        ["Relative Humidity", "20%"],
-        ["Aerosol Optical Depth", "0.08"],
-        ["Ångström Coefficient", "1.3"],
-        ["Cloud Base", "None"],
-        ["Ground Reflectance", "80% grass\n20% asphalt"],
-        ["Relative Humidity", "20%"],
-        ["Aerosol Optical Depth", "0.08"],
-        ["Ångström Coefficient", "1.3"],
-        ["Cloud Base", "None"],
-        ["Ground Reflectance", "80% grass\n20% asphalt"]
+        ['nb_bins', '3'],
+        ['Lambda_min', '510'],
+        ['Lambda_max', '600'],
+        ['Elevation angle', '[2:90:4]'],
+        ['Azimuth angle', '[2:354:8]'],
+        ['Direct fiel of vision', '5 m'],
       ],
     },
     plots: [
@@ -79,6 +117,48 @@ export const simulations = [
         caption: "Typical spring atmospheric conditions",
       }
     ],
+    seasonPlots: {
+      summer: [
+        {
+          src: domain,
+          caption: "Simulation domain",
+        },
+        {
+          src: summer,
+          caption: "Typical summer atmospheric conditions",
+        },
+      ],
+      autumn: [
+        {
+          src: domain,
+          caption: "Simulation domain",
+        },
+        {
+          src: autumn,
+          caption: "Typical autumn atmospheric conditions",
+        },
+      ],
+      winter: [
+        {
+          src: domain,
+          caption: "Simulation domain",
+        },
+        {
+          src: winter,
+          caption: "Typical winter atmospheric conditions",
+        },
+      ],
+      spring: [
+        {
+          src: domain,
+          caption: "Simulation domain",
+        },
+        {
+          src: spring,
+          caption: "Typical spring atmospheric conditions",
+        },
+      ],
+    },  
     extra:
       "This case can be used as the baseline simulation. Differences between this and other scenarios help isolate the role of atmospheric turbidity and cloud scattering.",
   },  
@@ -93,16 +173,23 @@ export const simulations = [
       "This simulation represents a stable clear-sky atmosphere, useful as a reference case for comparing the effect of clouds, humidity, and aerosol concentration.",
     previewImage: contrastset, 
     parameters: [
-      ["Relative Humidity", "20%"],
-      ["Aerosol Optical Depth", "0.08"],
-      ["Ångström Coefficient", "1.3"],
-      ["Cloud Base", "None"],
-      ["Ground Reflectance", "80% grass\n20% asphalt"],
-      ["Relative Humidity", "20%"],
-      ["Aerosol Optical Depth", "0.08"],
-      ["Ångström Coefficient", "1.3"],
-      ["Cloud Base", "None"],
-      ["Ground Reflectance", "80% grass\n20% asphalt"],
+      ["Relative Humidity", "10%"],
+        ['Air pressure', '762 hPa'],
+        ["Aerosol Optical Depth", "0.02"],
+        ["Ångström Coefficient", "1.40"],
+        ["Aerosol profile", "D"],
+        ["Aerosol height", "800 m"],
+        ["Cloud base", "None"],
+        ["Cloud model", "None"],
+        ["Cloud fraction", "None"],
+        ['Observer elevation', '15 m'],
+        ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ['nb_bins', '3'],
+        ['Lambda_min', '510'],
+        ['Lambda_max', '600'],
+        ['Elevation angle', '[2:90:4]'],
+        ['Azimuth angle', '[2:354:8]'],
+        ['Direct fiel of vision', '5 m'],
     ],
     plots: [
       {
@@ -110,7 +197,7 @@ export const simulations = [
         caption: "caption",
       },
       {
-        src: clear02,
+        src: domain,
         caption: "caption.",
       },
     ],
@@ -129,11 +216,23 @@ export const simulations = [
       "This simulation explores how cloud layers redistribute artificial light, increasing diffuse sky brightness and changing the angular radiance structure.",
     previewImage: contrastset, 
       parameters: [
-      ["Relative Humidity", "70%"],
-      ["Aerosol Optical Depth", "0.18"],
-      ["Ångström Coefficient", "0.9"],
-      ["Cloud Base", "1200 m"],
-      ["Ground Reflectance", "80% grass\n20% asphalt "],
+        ["Relative Humidity", "70%"],
+        ['Air pressure', '750 hPa'],
+        ["Aerosol Optical Depth", "0.08"],
+        ["Ångström Coefficient", "1.10"],
+        ["Aerosol profile", "D"],
+        ["Aerosol height", "2200 m"],
+        ["Cloud base", "7000 m"],
+        ["Cloud model", "3"],
+        ["Cloud fraction", "80"],
+        ['Observer elevation', '15 m'],
+        ["Ground Reflectance", "80% grass\n20% asphalt"],
+        ['nb_bins', '3'],
+        ['Lambda_min', '510'],
+        ['Lambda_max', '600'],
+        ['Elevation angle', '[2:90:4]'],
+        ['Azimuth angle', '[2:354:8]'],
+        ['Direct fiel of vision', '5 m'],
     ],
     plots: [
       {
@@ -150,3 +249,31 @@ export const simulations = [
   },
 ];
 
+
+/* plotSet: [[
+      {
+        src: summer,
+        caption: "Typical summer atmospheric conditions",
+      },
+      {
+        src: autumn,
+        caption: "Typical autumn atmospheric conditions",
+      },
+      {
+        src: winter,
+        caption: "Typical winter atmospheric conditions",
+      },
+      {
+        src: spring,
+        caption: "Typical spring atmospheric conditions",
+      }
+    ]],*/
+
+
+    /*
+    
+    summer_plot: [summer,"Typical summer atmospheric conditions"],
+      autumn_plot: [autumn, "Typical autumn atmospheric conditions"],
+      winter_plot: [winter, "Typical winter atmospheric conditions"],
+      spring_plot: [spring, "Typical spring atmospheric conditions"],
+    */

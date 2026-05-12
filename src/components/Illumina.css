@@ -18,7 +18,7 @@
   background: rgba(126, 126, 121, 0.78);
   backdrop-filter: blur(16px);
   box-shadow: 0 24px 70px rgba(30, 55, 90, 0.12);
-  background-image: url('../../public/hero2.1.jpg');
+  background-image: url('/hero2.1.jpg');
   background-size: cover;
   background-position: 0em 0em;
   text-align: center;
@@ -63,7 +63,7 @@
   background: rgba(118, 141, 140, 0.72);
   box-shadow: 0 22px 60px rgba(20, 40, 70, 0.1);
   border: 1px solid rgba(120, 150, 190, 0.18);
-  background-image: url('../../public/hero1.jpg');
+  background-image: url('/public/hero1.jpg');
 }
 
 .simulation-header {

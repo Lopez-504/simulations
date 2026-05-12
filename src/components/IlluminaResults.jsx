@@ -1,16 +1,11 @@
 import { useState } from "react";
 import "./Illumina.css";
 
-//pictures
-import autumn from "/autumn.png"
-import summer from "/summer.png"
-import seasonalset from '/seasonalSets.png'
-import contrastset from '/contrastSims.png'
-
 import { simulations } from './simulations'
 import { seasons } from "./simulations";
 
 export default function SimulationResults() {
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [zoomedImage, setZoomedImage] = useState(null);
 
@@ -30,9 +25,15 @@ export default function SimulationResults() {
 
   const [selectedSeason, setSelectedSeason] = useState("summer");
 
+  // Parameters
   const currentParameters =
   currentSimulation.parameterSets?.[selectedSeason] ??
   currentSimulation.parameters;
+
+  // Plots
+  const currentPlots =
+  currentSimulation.seasonPlots?.[selectedSeason] ??
+  currentSimulation.plots;
 
   return (
     <section className="simulation-results-section">
@@ -118,22 +119,22 @@ export default function SimulationResults() {
           
 {/* 2 plots. Add zoom to this ones too */}
 
-          <div className="plots-grid">
-            {currentSimulation.plots.map((plot, index) => (
-              <figure
-                className="plot-card zoomable"
-                key={`${currentSimulation.id}-plot-${index}`}
-                onClick={() => setZoomedImage(plot.src)}
-              >
-                <div className="plot-image-wrapper">
-                  <img src={plot.src} alt={plot.caption} />
-                  <div className="zoom-hint">Click to zoom</div>
-                </div>
+<div className="plots-grid" key={`${currentSimulation.id}-${selectedSeason}`}>
+  {currentPlots.map((plot, index) => (
+    <figure
+      className="plot-card zoomable"
+      key={`${currentSimulation.id}-${selectedSeason}-plot-${index}`}
+      onClick={() => setZoomedImage(plot.src)}>
+     
+      <div className="plot-image-wrapper">
+        <img src={plot.src} alt={plot.caption} />
+        <div className="zoom-hint">Click to zoom</div>
+      </div>
 
-                <figcaption>{plot.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
+      <figcaption>{plot.caption}</figcaption>
+    </figure>
+  ))}
+</div>
 
 {/* Additional notes */}
 

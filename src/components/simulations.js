@@ -5,7 +5,7 @@ import spring from "/spring.png"
 import seasonalset from '/seasonalSets.png'
 import contrastset from '/contrastSims.png'
 import cloudy from '/skyglow-map_workSupCloudy_555.0.png'
-import clear01 from '/skyglow-map_work4_550.0.png'
+import clear01 from '/summer.png'           //using this one for now
 import domain from '/illumina_domain.png'
 
 export const seasons = ["summer", "autumn", "winter", "spring"];
@@ -30,7 +30,7 @@ export const simulations = [
         ["Aerosol profile", "D"],
         ["Aerosol height", "1000 m"],
         ["Cloud base", "0"],
-        ["Cloud model", "0"],
+        ["Cloud model", "0 (Clear)"],
         ["Cloud fraction", "0"],
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
@@ -49,7 +49,7 @@ export const simulations = [
         ["Aerosol profile", "D"],
         ["Aerosol height", "1500 m"],
         ["Cloud base", "10000 m"],
-        ["Cloud model", "1"],
+        ["Cloud model", "1 (thin Cirrus)"],
         ["Cloud fraction", "10"],
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
@@ -68,7 +68,7 @@ export const simulations = [
         ["Aerosol profile", "D"],
         ["Aerosol height", "1800 m"],
         ["Cloud base", "9000 m"],
-        ["Cloud model", "1"],
+        ["Cloud model", "1 (thin Cirrus)"],
         ["Cloud fraction", "20"],
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt\n0% snow"],
@@ -87,7 +87,7 @@ export const simulations = [
         ["Aerosol profile", "D"],
         ["Aerosol height", "2000 m"],
         ["Cloud base", "10000 m"],
-        ["Cloud model", "1"],
+        ["Cloud model", "1 (thin Cirrus)"],
         ["Cloud fraction", "5"],
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
@@ -121,7 +121,7 @@ export const simulations = [
       summer: [
         {
           src: domain,
-          caption: "Simulation domain",
+          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
         },
         {
           src: summer,
@@ -131,7 +131,7 @@ export const simulations = [
       autumn: [
         {
           src: domain,
-          caption: "Simulation domain",
+          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
         },
         {
           src: autumn,
@@ -141,7 +141,7 @@ export const simulations = [
       winter: [
         {
           src: domain,
-          caption: "Simulation domain",
+          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
         },
         {
           src: winter,
@@ -151,7 +151,7 @@ export const simulations = [
       spring: [
         {
           src: domain,
-          caption: "Simulation domain",
+          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
         },
         {
           src: spring,
@@ -179,9 +179,9 @@ export const simulations = [
         ["Ångström Coefficient", "1.40"],
         ["Aerosol profile", "D"],
         ["Aerosol height", "800 m"],
-        ["Cloud base", "None"],
-        ["Cloud model", "None"],
-        ["Cloud fraction", "None"],
+        ["Cloud base", "0"],
+        ["Cloud model", "0 (clear)"],
+        ["Cloud fraction", "0"],
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
         ['nb_bins', '3'],
@@ -193,12 +193,12 @@ export const simulations = [
     ],
     plots: [
       {
-        src: clear01,
-        caption: "caption",
+        src: domain,
+        caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
       },
       {
-        src: domain,
-        caption: "caption.",
+        src: clear01,
+        caption: "This map corresponds to the summer one from the seasonal experiment. Its input params are practically identical. Units of W/m²/sr/nm.",
       },
     ],
     extra:
@@ -223,7 +223,7 @@ export const simulations = [
         ["Aerosol profile", "D"],
         ["Aerosol height", "2200 m"],
         ["Cloud base", "7000 m"],
-        ["Cloud model", "3"],
+        ["Cloud model", "3 (Altostratus/Altocumulus)"],
         ["Cloud fraction", "80"],
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
@@ -236,12 +236,12 @@ export const simulations = [
     ],
     plots: [
       {
-        src: cloudy,
-        caption: "Diffuse radiance @555nm",
+        src: domain,
+        caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
       },
       {
         src: cloudy,
-        caption: "Diffuse radiance @555nm",
+        caption: "Diffuse radiance @555nm. Units of W/m²/sr/nm.",
       },
     ],
     extra:

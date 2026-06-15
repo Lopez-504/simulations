@@ -19,7 +19,7 @@ export const simulations = [
     title: "Seasonal Experiment ☀️🍂❄️🌸",
     subtitle: "Atmospheric conditions based on season",
     description:
-      "This simulations explores the behaviour of the articial light contributions under typical atmospheric conditions for each season",
+      "This simulations explores the behaviour of articial light contributions to skyglow under typical atmospheric conditions for each season. Input parameters are obtained from typical condition for Paranal Observatory region at the beginning of each season (approx. dates: Dec 21, Mar 20, Jun 21, Sep 23)",
     previewImage: seasonalset, 
     parameterSets: {
       summer: [
@@ -27,7 +27,7 @@ export const simulations = [
         ['Air pressure', '760 hPa'],
         ["Aerosol Optical Depth", "0.03"],
         ["Ångström Coefficient", "1.35"],
-        ["Aerosol profile", "D"],
+        ["Aerosol profile", "D (Desert)"],
         ["Aerosol height", "1000 m"],
         ["Cloud base", "0"],
         ["Cloud model", "0 (Clear)"],
@@ -35,8 +35,8 @@ export const simulations = [
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
         ['nb_bins', '3'],
-        ['Lambda_min', '510'],
-        ['Lambda_max', '600'],
+        ['Lambda_min', '510 nm'],
+        ['Lambda_max', '600 nm'],
         ['Elevation angle', '[2:90:4]'],
         ['Azimuth angle', '[2:354:8]'],
         ['Direct fiel of vision', '5 m'],
@@ -46,7 +46,7 @@ export const simulations = [
         ['Air pressure', '758 hPa'],
         ["Aerosol Optical Depth", "0.04"],
         ["Ångström Coefficient", "1.30"],
-        ["Aerosol profile", "D"],
+        ["Aerosol profile", "D (Desert)"],
         ["Aerosol height", "1500 m"],
         ["Cloud base", "10000 m"],
         ["Cloud model", "1 (thin Cirrus)"],
@@ -54,8 +54,8 @@ export const simulations = [
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
         ['nb_bins', '3'],
-        ['Lambda_min', '510'],
-        ['Lambda_max', '600'],
+        ['Lambda_min', '510 nm'],
+        ['Lambda_max', '600 nm'],
         ['Elevation angle', '[2:90:4]'],
         ['Azimuth angle', '[2:354:8]'],
         ['Direct fiel of vision', '5 m'],
@@ -65,7 +65,7 @@ export const simulations = [
         ['Air pressure', '753 hPa'],
         ["Aerosol Optical Depth", "0.05"],
         ["Ångström Coefficient", "1.20"],
-        ["Aerosol profile", "D"],
+        ["Aerosol profile", "D (Desert)"],
         ["Aerosol height", "1800 m"],
         ["Cloud base", "9000 m"],
         ["Cloud model", "1 (thin Cirrus)"],
@@ -73,8 +73,8 @@ export const simulations = [
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt\n0% snow"],
         ['nb_bins', '3'],
-        ['Lambda_min', '510'],
-        ['Lambda_max', '600'],
+        ['Lambda_min', '510 nm'],
+        ['Lambda_max', '600 nm'],
         ['Elevation angle', '[2:90:4]'],
         ['Azimuth angle', '[2:354:8]'],
         ['Direct fiel of vision', '5 m'],
@@ -84,7 +84,7 @@ export const simulations = [
         ['Air pressure', '756 hPa'],
         ["Aerosol Optical Depth", "0.06"],
         ["Ångström Coefficient", "1.40"],
-        ["Aerosol profile", "D"],
+        ["Aerosol profile", "D (Desert)"],
         ["Aerosol height", "2000 m"],
         ["Cloud base", "10000 m"],
         ["Cloud model", "1 (thin Cirrus)"],
@@ -92,8 +92,8 @@ export const simulations = [
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
         ['nb_bins', '3'],
-        ['Lambda_min', '510'],
-        ['Lambda_max', '600'],
+        ['Lambda_min', '510 nm'],
+        ['Lambda_max', '600 nm'],
         ['Elevation angle', '[2:90:4]'],
         ['Azimuth angle', '[2:354:8]'],
         ['Direct fiel of vision', '5 m'],
@@ -102,65 +102,65 @@ export const simulations = [
     plots: [
       {
         src: summer,
-        caption: "Typical summer atmospheric conditions",
+        caption: "Artificial light contribution to skyglow. Typical summer atmospheric conditions.",
       },
       {
         src: autumn,
-        caption: "Typical autumn atmospheric conditions",
+        caption: "Artificial light contribution to skyglow. Typical autumn atmospheric conditions.",
       },
       {
         src: winter,
-        caption: "Typical winter atmospheric conditions",
+        caption: "Artificial light contribution to skyglow. Typical winter atmospheric conditions.",
       },
       {
         src: spring,
-        caption: "Typical spring atmospheric conditions",
+        caption: "Artificial light contribution to skyglow. Typical spring atmospheric conditions.",
       }
     ],
     seasonPlots: {
       summer: [
         {
           src: domain,
-          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
         },
         {
           src: summer,
-          caption: "Typical summer atmospheric conditions",
+          caption: "Typical summer atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
         },
       ],
       autumn: [
         {
           src: domain,
-          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
         },
         {
           src: autumn,
-          caption: "Typical autumn atmospheric conditions",
+          caption: "Typical autumn atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
         },
       ],
       winter: [
         {
           src: domain,
-          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
         },
         {
           src: winter,
-          caption: "Typical winter atmospheric conditions",
+          caption: "Typical winter atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
         },
       ],
       spring: [
         {
           src: domain,
-          caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
         },
         {
           src: spring,
-          caption: "Typical spring atmospheric conditions",
+          caption: "Typical spring atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
         },
       ],
     },  
     extra:
-      "This case can be used as the baseline simulation. Differences between this and other scenarios help isolate the role of atmospheric turbidity and cloud scattering.",
+      "These are only preliminary results, further investigation is currently being made to further refine input parameters and ground reflectance data.",
   },  
 
   // Clear sky
@@ -170,14 +170,14 @@ export const simulations = [
     title: "Clear Sky Scenario ⋆⭒˚.⋆🔭",
     subtitle: "Low aerosol loading, dry atmosphere, and high visibility.",
     description:
-      "This simulation represents a stable clear-sky atmosphere, useful as a reference case for comparing the effect of clouds, humidity, and aerosol concentration.",
+      "This simulation represents a stable clear-sky atmosphere, useful as a reference case for comparing the effect of clouds, humidity, and aerosol concentration. Input parameters are obtained from stable clear-sky conditions at Paranal Observatory.",
     previewImage: contrastset, 
     parameters: [
       ["Relative Humidity", "10%"],
         ['Air pressure', '762 hPa'],
         ["Aerosol Optical Depth", "0.02"],
         ["Ångström Coefficient", "1.40"],
-        ["Aerosol profile", "D"],
+        ["Aerosol profile", "D (Desert)"],
         ["Aerosol height", "800 m"],
         ["Cloud base", "0"],
         ["Cloud model", "0 (clear)"],
@@ -185,8 +185,8 @@ export const simulations = [
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
         ['nb_bins', '3'],
-        ['Lambda_min', '510'],
-        ['Lambda_max', '600'],
+        ['Lambda_min', '510 nm'],
+        ['Lambda_max', '600 nm'],
         ['Elevation angle', '[2:90:4]'],
         ['Azimuth angle', '[2:354:8]'],
         ['Direct fiel of vision', '5 m'],
@@ -194,15 +194,15 @@ export const simulations = [
     plots: [
       {
         src: domain,
-        caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
+        caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
       },
       {
         src: clear01,
-        caption: "This map corresponds to the summer one from the seasonal experiment. Its input params are practically identical. Units of W/m²/sr/nm.",
+        caption: "This map corresponds to the summer one from the seasonal experiment (their input params are practically identical). Units of W/m²/sr/nm.",
       },
     ],
     extra:
-      "This case can be used as the baseline simulation. Differences between this and other scenarios help isolate the role of atmospheric turbidity and cloud scattering.",
+      "These are only preliminary results, further investigation is currently being made to further refine input parameters and ground reflectance data.",
   },
   
   
@@ -213,14 +213,14 @@ export const simulations = [
     title: "Cloudy Scenario ☁️",
     subtitle: "Enhanced scattering caused by low cloud cover.",
     description:
-      "This simulation explores how cloud layers redistribute artificial light, increasing diffuse sky brightness and changing the angular radiance structure.",
+      "This simulation explores how cloud layers redistribute artificial light, increasing diffuse sky brightness. Input parameters are obtained from typical low cloud cover conditions at Paranal Observatory.",
     previewImage: contrastset, 
       parameters: [
         ["Relative Humidity", "70%"],
         ['Air pressure', '750 hPa'],
         ["Aerosol Optical Depth", "0.08"],
         ["Ångström Coefficient", "1.10"],
-        ["Aerosol profile", "D"],
+        ["Aerosol profile", "D (Desert)"],
         ["Aerosol height", "2200 m"],
         ["Cloud base", "7000 m"],
         ["Cloud model", "3 (Altostratus/Altocumulus)"],
@@ -228,8 +228,8 @@ export const simulations = [
         ['Observer elevation', '15 m'],
         ["Ground Reflectance", "80% grass\n20% asphalt"],
         ['nb_bins', '3'],
-        ['Lambda_min', '510'],
-        ['Lambda_max', '600'],
+        ['Lambda_min', '510 nm'],
+        ['Lambda_max', '600 nm'],
         ['Elevation angle', '[2:90:4]'],
         ['Azimuth angle', '[2:354:8]'],
         ['Direct fiel of vision', '5 m'],
@@ -237,7 +237,7 @@ export const simulations = [
     plots: [
       {
         src: domain,
-        caption: "Simulation domain. 3 layers (27 km, 81 km, 243 km).",
+        caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
       },
       {
         src: cloudy,
@@ -245,7 +245,7 @@ export const simulations = [
       },
     ],
     extra:
-      "Investigate these white patches, probably artifacts",
+      "Investigate these white patches, probably interpolation-generated artifacts. These are only preliminary results, further investigation is currently being made to further refine input parameters and ground reflectance data.",
   },
 ];
 

@@ -1,9 +1,9 @@
 .simulation-results-section {
   width: 100%;
-  padding: 2rem 2.1rem;
+  padding: 1.4rem 2.21rem;
   background:
-    radial-gradient(circle at top left, rgba(74, 144, 226, 0.18), transparent 32rem),
-    linear-gradient(180deg, #f8fbff 0%, #eef3f9 100%);
+    radial-gradient(circle at top right, rgba(255, 253, 202, 0.837), transparent 10rem),
+    linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
   /*background-image: url('../../public/space.jpg');
   background-size: cover;
   background-repeat: no-repeat;*/
@@ -11,16 +11,19 @@
 }
 
 .simulation-hero {
-  max-width: 990px;
+  max-width: 1024px;
   margin: 0 auto 0.8rem auto;    /* margin is the space between containers  */
-  padding: 3rem;
+  padding-top: 0.07rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   border-radius: 28px;
   background: rgba(126, 126, 121, 0.78);
-  backdrop-filter: blur(16px);
+  /*backdrop-filter: blur(16px);*/
   box-shadow: 0 24px 70px rgba(30, 55, 90, 0.12);
   background-image: url('/hero2.1.jpg');
   background-size: cover;
-  background-position: 0em 0em;
+  background-position: 0em -7.9em;
   text-align: center;
 }
 
@@ -36,7 +39,7 @@
 
 .simulation-hero h1 {
   margin: 0;
-  font-size: clamp(2.3rem, 5vw, 4.5rem);
+  font-size: clamp(2.3rem, 5vw, 3.5rem);
   line-height: 1;
   color: #1e2942;
 }
@@ -45,7 +48,7 @@
   max-width: 720px;
   margin: 1.2rem auto 0;
   font-size: 1.1rem;
-  color: #526070;
+  color: #6a707e;
 }
 
 /*
@@ -64,6 +67,7 @@
   box-shadow: 0 22px 60px rgba(20, 40, 70, 0.1);
   border: 1px solid rgba(120, 150, 190, 0.18);
   background-image: url('/public/hero1.jpg');
+  background-size: contain;
 }
 
 .simulation-header {
@@ -120,7 +124,7 @@
   display: grid;
   gap: 0rem;
   overflow-y: auto;
-  height: 16vw;
+  height: 17.35vw;
   scrollbar-width: none;
   max-height: 100%;
 }
@@ -164,7 +168,7 @@
 
 .plot-card figcaption {
   padding: 0.9rem 1rem 1.1rem;
-  font-size: 0.92rem;
+  font-size: 1rem;
   line-height: 1.45;
   color: #5c6978;
   background: linear-gradient(180deg, #ffffff, #f7faff);
@@ -175,8 +179,8 @@
 .simulation-extra {
   margin-top: 0.8rem;           /* This is a handy css option */
   background: linear-gradient(45deg, #ffffff, #eaeaea);
-  margin-bottom: 0rem;
-  padding: 0.7rem;
+  margin-bottom: 0.1rem;
+  padding: 0.8rem;
 }
 
 @media (max-width: 850px) {
@@ -217,8 +221,8 @@
 
 .preview-image-wrapper {
   position: relative;
-  min-width: 240px;
-  max-width: 380px;
+  max-width: 290px;
+  max-height: 180px;
   cursor: zoom-in;
   border-radius: 16px;
   overflow: hidden;
@@ -228,14 +232,14 @@
 
 .preview-image {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: 180px;
+  object-fit: contain;
   display: block;
   transition: transform 0.7s ease;
 }
 
 .preview-image-wrapper:hover .preview-image {
-  transform: scale(1.09);
+  transform: scale(1.05);
 }
 
 .zoom-hint {
@@ -273,10 +277,17 @@
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
+.image-modal h2 {
+  position: fixed;
+  top: 0.7rem;
+  font-size: 1rem;
+  color: #e0e6ed;
+}
+
 /*  Carousel  */
 
 .simulation-carousel {
-  max-width: 1320px;
+  max-width: 1540px;                      /* outside container */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -408,4 +419,68 @@
 .season-select:focus {
   outline: 2px solid #93c5fd;
   outline-offset: 2px;
+}
+
+/* seasonal comparison */
+.seasonal-comparison-card {
+  margin-top: 1.3rem;
+}
+
+.seasonal-comparison-card h3 {
+  margin-bottom: 0.2rem;
+  font-size: 1.3rem;
+}
+
+.comparison-subtitle {
+  margin-bottom: 0.2rem;
+  color: #526070;
+  font-size: medium;
+}
+
+.seasonal-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 3fr);
+  column-gap: 0rem;
+}
+
+.comparison-plot-card {
+  border-radius: 25px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: rgb(213, 211, 250);
+  border: 1px solid rgba(97, 85, 79, 0.247);
+  transition: transform 0.25s ease-out;
+  margin: 0.9rem;
+}
+
+.comparison-label {
+  position: relative;
+  padding: 0.35rem 0.75rem;
+  background: none;
+  color: rgb(91, 82, 82);
+  text-transform: capitalize;
+  font-weight: 700;
+  backdrop-filter: blur(5px);
+}
+
+.comparison-plot-card:hover {
+  transform: translateY(-4px);
+}
+
+.comparison-plot-card img {
+  width: 100%;
+  display: block;
+}
+
+.comparison-plot-card figcaption {
+  padding: 0.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #35383d;
+}
+
+@media (max-width: 900px) {
+  .seasonal-comparison-grid {
+    grid-template-columns: 1fr;
+  }
 }

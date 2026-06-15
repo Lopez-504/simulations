@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Illumina.css";
 
 import { simulations } from './simulations'
@@ -7,7 +7,8 @@ import { seasons } from "./simulations";
 export default function SimulationResults() {
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [zoomedImage, setZoomedImage] = useState(null);
+  const [zoomedImage, setZoomedImage] = useState(null);                 //2 zoom systems
+  const [zoomedPlotIndex, setZoomedPlotIndex] = useState(null);
 
   const currentSimulation = simulations[activeIndex];
 
@@ -35,14 +36,44 @@ export default function SimulationResults() {
   currentSimulation.seasonPlots?.[selectedSeason] ??
   currentSimulation.plots;
 
+  // Keyboard navigation
+  useEffect(() => {
+    if (
+      currentSimulation.id !== "season-exp" ||
+      zoomedPlotIndex === null
+    ) {
+      return;
+    }
+
+    const handleKeyDown = (event) => {
+
+      if (event.key === "ArrowRight") {
+        setZoomedPlotIndex(prev =>
+          (prev + 1) % currentSimulation.plots.length
+        );
+      }
+      if (event.key === "ArrowLeft") {
+        setZoomedPlotIndex(prev =>
+          (prev - 1 + currentSimulation.plots.length) %
+          currentSimulation.plots.length
+        );
+      }
+      if (event.key === "Escape") {
+        setZoomedPlotIndex(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [zoomedPlotIndex, currentSimulation]);
+
+
   return (
     <section className="simulation-results-section">
       <div className="simulation-hero">
-        <p className="eyebrow">Illumina Simulations ⚛︎</p>
+        <p className="eyebrow">Illumina 🌍</p>
         <h1>Simulation Results 🌐</h1>
-        <p>
-          Browse each simulation as an individual card (slide sideways)
-        </p>
       </div>
 
       <div className="simulation-carousel">
@@ -136,11 +167,41 @@ export default function SimulationResults() {
   ))}
 </div>
 
+{/* Comparison for seasonal simulation */}
+
+{currentSimulation.id === "season-exp" && (
+  <div className="result-card seasonal-comparison-card">
+    <h3>Seasonal Comparison</h3>
+
+    <p className="comparison-subtitle">
+      Compare the four seasonal simulations simultaneously.
+    </p>
+
+    <div className="seasonal-comparison-grid">
+      {currentSimulation.plots.map((plot, index) => (
+        <figure
+          className="comparison-plot-card"
+          key={`comparison-${index}`}
+          onClick={() => setZoomedPlotIndex(index)}
+        >
+          <div className="comparison-label">
+            {plot.caption.split(" ")[6]}
+          </div> 
+          <img src={plot.src} alt={plot.caption} />
+          {/*<figcaption>{plot.caption}</figcaption>*/}    
+        </figure>
+      ))}
+    </div>
+  </div>
+)}
+
 {/* Additional notes */}
 
           <div className="result-card simulation-extra">
             <h3>Additional notes</h3>
             <p>{currentSimulation.extra}</p>
+            <p>Simulations made by: Jorge López. Email: <a href="mailto:tu-jorgelopezr8@gmail.com">Write to me</a></p>
+            <p>Illumina documentation: <a href="http://obsand.org/wiki/index.php?n=Prof.IlluminaGuidev22">User's guide</a></p>
           </div>
         </article>
 
@@ -158,11 +219,41 @@ export default function SimulationResults() {
         ))}
       </div>
 
-      {zoomedImage && (
-        <div className="image-modal" onClick={() => setZoomedImage(null)}>
-          <img src={zoomedImage} alt="Zoomed simulation preview" />
-        </div>
-      )}
+      {currentSimulation.id === "season-exp" &&
+        zoomedPlotIndex !== null && (
+
+          <div
+            className="image-modal"
+            onClick={() => setZoomedPlotIndex(null)}
+          >
+            <h2>Use your keyboard arrows to navigate between plots</h2> 
+            <img
+              src={currentSimulation.plots[zoomedPlotIndex].src}
+              alt={currentSimulation.plots[zoomedPlotIndex].caption}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
+   
+        {zoomedImage && (
+          <div
+            className="image-modal"
+            onClick={() => setZoomedImage(null)}
+          >
+            <img src={zoomedImage} alt="Zoomed image" />
+          </div>
+        )}
     </section>
   );
 }
+
+//Fix css: size of paramtere list, Use all available space; make the gpt image smaller (done)
+//Expand on the brief description (done)
+// For now I don't like the captions for the seasonal comparison plots, too repetitive.
+
+
+/*
+<p>
+  Browse each simulation as an individual cards.
+</p>
+*/

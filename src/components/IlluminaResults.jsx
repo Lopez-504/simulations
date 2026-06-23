@@ -4,7 +4,8 @@ import "./Illumina.css";
 import { simulations } from './simulations'
 import { seasons } from "./simulations";
 
-//import pdf_slideshow from '../../public/illumina_results.pdf'
+//import pdf_slideshow from '../../public/Illumina_results.pdf'
+//import html_slideshow from '../../public/Illumina_results.html'       not working
 
 export default function SimulationResults() {
 
@@ -203,7 +204,7 @@ export default function SimulationResults() {
             <h3>Additional notes</h3>
             <p>{currentSimulation.extra}</p>
             <p>Simulations made by: Jorge López. Email: <a href="mailto:jorgelopezr8@gmail.com">Write to me</a></p>
-            <p>Results presentation: <a href="../../public/Illumina_results.pdf" target="_blank" rel="noopener noreferrer">PDF</a> | <a href="../../public/Illumina_results.html" target="_blank" rel="noopener noreferrer">HTML</a></p>
+            <p>Results presentation: <a href='/Illumina_results.pdf' target="_blank" rel="noopener noreferrer">PDF</a> | <a href='/Illumina_results.pdf' target="_blank" rel="noopener noreferrer">HTML</a></p>
             <p>Illumina documentation: <a href="http://obsand.org/wiki/index.php?n=Prof.IlluminaGuidev22" target="_blank" rel="noopener noreferrer">User's guide</a></p>
           </div>
         </article>

@@ -112,7 +112,7 @@
 
 .result-card h3 {
   margin-top: 0;
-  font-size: 1.1rem;
+  font-size: 1.24rem;
 }
 
 .result-card p {
@@ -161,7 +161,7 @@
 .plot-card img {
   width: 100%;
   display: block;
-  aspect-ratio: 16 / 16;
+  aspect-ratio: auto;
   object-fit: fill;
   background: #dbe5f0;
 }
@@ -359,6 +359,7 @@
 .plot-card.zoomable {
   cursor: zoom-in;
   overflow: hidden;
+  justify-content: center;
 }
 
 .plot-image-wrapper {

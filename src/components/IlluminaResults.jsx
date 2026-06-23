@@ -4,8 +4,8 @@ import "./Illumina.css";
 import { simulations } from './simulations'
 import { seasons } from "./simulations";
 
-import pdf from '/Illumina_results.pdf'
-import html from '/Illumina_results.html'
+import pdf from '/Illumina_results.pdf';
+//import html from '/Illumina_results.html';
 
 export default function SimulationResults() {
 

@@ -6,7 +6,7 @@ import seasonalset from '/seasonalSets.png'
 import contrastset from '/contrastSims.png'
 import cloudy from '/skyglow-map_workSupCloudy_555.0.png'
 import clear01 from '/summer.png'           //using this one for now
-import domain from '/illumina_domain.png'
+import domain from '/domain3.png'           // Update this
 
 export const seasons = ["summer", "autumn", "winter", "spring"];
 

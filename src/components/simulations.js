@@ -1,14 +1,17 @@
-import autumn from "/autumn.png"
-import summer from "/summer.png"
-import winter from "/winter.png"
-import spring from "/spring.png"
+import autumn from "/skyglow-map_Exp-autumn_555.0_interp.png"
+import summer from "/skyglow-map_Exp-summer_555.0_interp.png"
+import winter from "/skyglow-map_Exp-winter_555.0_interp.png"
+import spring from "/skyglow-map_Exp-spring_555.0_interp.png"
 import seasonalset from '/seasonalSets.png'
 import contrastset from '/contrastSims.png'
 import cloudy from '/skyglow-map_workSupCloudy_555.0.png'
 import clear01 from '/summer.png'           //using this one for now
-import domain from '/domain3.png'           // Update this
-//import pdf from '/Illumina_results.pdf'
-//import html from '/Illumina_results.html'    moved these 2 to component
+import domain from '/illumina_domain_no-buffer4.png'          
+
+import autumn_contribution from "/autumn_contribution4.png"
+import summer_contribution from "/summer_contribution4.png"
+import winter_contribution from "/winter_contribution4.png"
+import spring_contribution from "/spring_contribution4.png"
 
 export const seasons = ["summer", "autumn", "winter", "spring"];
 
@@ -123,46 +126,65 @@ export const simulations = [
       summer: [
         {
           src: domain,
-          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain: 3 nested layers (27² km, 81² km, 243² km), not including 10km buffer.",
         },
         {
           src: summer,
-          caption: "Typical summer atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
+          caption: "Diffuse radiance @555nm under typical summer atmospheric conditions at Paranal, Antofagasta.",
         },
       ],
       autumn: [
         {
           src: domain,
-          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain: 3 nested layers (27² km, 81² km, 243² km), not including 10km buffer.",
         },
         {
           src: autumn,
-          caption: "Typical autumn atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
+          caption: "Diffuse radiance @555nm under typical autumn atmospheric conditions at Paranal, Antofagasta.",
         },
       ],
       winter: [
         {
           src: domain,
-          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain: 3 nested layers (27² km, 81² km, 243² km), not including 10km buffer.",
         },
         {
           src: winter,
-          caption: "Typical winter atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
+          caption: "Diffuse radiance @555nm under typical winter atmospheric conditions at Paranal, Antofagasta.",
         },
       ],
       spring: [
         {
           src: domain,
-          caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
+          caption: "Simulation domain: 3 nested layers (27² km, 81² km, 243² km), not including 10km buffer.",
         },
         {
           src: spring,
-          caption: "Typical spring atmospheric conditions. Diffuse radiance @555nm. Units of W/m²/sr/nm.",
+          caption: "Diffuse radiance @555nm under typical spring atmospheric conditions at Paranal, Antofagasta.",
         },
       ],
     },  
+    seasonalContributionPlots: {
+      summer: {
+        src: summer_contribution,
+        caption: "Summer contribution plots",
+      },
+      autumn: {
+        src: autumn_contribution,
+        caption: "Autumn contribution plots",
+      },
+      winter: {
+        src: winter_contribution,
+        caption: "Winter contribution plots",
+      },
+      spring: {
+        src: spring_contribution,
+        caption: "Spring contribution plots",
+      },
+    },
+    
     extra:
-      "These are only preliminary results, further investigation is currently being made to further refine input parameters and ground reflectance data.",
+      "These are only preliminary results, investigation is currently being made to further refine input parameters and aerosol characterization.",
   },  
 
   // Clear sky
@@ -196,7 +218,7 @@ export const simulations = [
     plots: [
       {
         src: domain,
-        caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
+        caption: "Simulation domain: 3 nested layers (27² km, 81² km, 243² km), not including 10km buffer.",
       },
       {
         src: clear01,
@@ -239,7 +261,7 @@ export const simulations = [
     plots: [
       {
         src: domain,
-        caption: "Simulation domain. 3 nested layers (27 km, 81 km, 243 km).",
+        caption: "Simulation domain: 3 nested layers (27² km, 81² km, 243² km), not including 10km buffer.",
       },
       {
         src: cloudy,

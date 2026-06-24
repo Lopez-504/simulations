@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import "./Illumina.css";
 
+import winterContribution from '/winter_contribution4.png'
+
 import { simulations } from './simulations'
 import { seasons } from "./simulations";
+//import { contributions } from './contributions';        working on it
 
 import pdf from '/Illumina_results.pdf';
-//import html from '/Illumina_results.html';
+//import html from '/Illumina_results.html';        // still working on it; we need all the images separately
 
 export default function SimulationResults() {
 
@@ -14,6 +17,7 @@ export default function SimulationResults() {
   const [zoomedPlotIndex, setZoomedPlotIndex] = useState(null);
 
   const currentSimulation = simulations[activeIndex];
+  //const currentContribution = contributions[activeIndex]            // testing
 
   const goPrevious = () => {
     setActiveIndex((prev) =>
@@ -38,6 +42,10 @@ export default function SimulationResults() {
   const currentPlots =
   currentSimulation.seasonPlots?.[selectedSeason] ??
   currentSimulation.plots;
+
+  //Contribution plots
+  const currentContributionPlot =
+  currentSimulation.seasonalContributionPlots?.[selectedSeason];
 
   // Keyboard navigation
   useEffect(() => {
@@ -80,7 +88,6 @@ export default function SimulationResults() {
       </div>
 
       <div className="simulation-carousel">
-
         <article className="simulation-block" id={currentSimulation.id}>
           <div className="simulation-header">
             <p className="simulation-label">
@@ -198,6 +205,43 @@ export default function SimulationResults() {
   </div>
 )}
 
+{/* Contribution test */}
+
+  {currentSimulation.id === "season-exp" && currentContributionPlot && (
+  <div className="result-card2">
+    <select
+        className="season-select"
+        value={selectedSeason}
+        onChange={(e) => setSelectedSeason(e.target.value)}
+      >
+        {Object.keys(currentSimulation.parameterSets).map((season) => (
+          <option key={season} value={season}>
+            {season.charAt(0).toUpperCase() + season.slice(1)}
+          </option>
+        ))}
+      </select>
+    {/*<h3>
+      {selectedSeason.charAt(0).toUpperCase() + selectedSeason.slice(1)}
+      {" "}Season Contribution (under construction)
+    </h3>*/}
+
+    <figure
+      className="plot-card zoomable"
+      onClick={() => setZoomedImage(currentContributionPlot.src)}
+    >
+      <div className="plot-image-wrapper">
+        <img
+          src={currentContributionPlot.src}
+          alt={currentContributionPlot.caption}
+        />
+        <div className="zoom-hint">Click to zoom</div>
+      </div>
+
+      <figcaption>{currentContributionPlot.caption}</figcaption>
+    </figure>
+  </div>
+)}
+
 {/* Additional notes */}
 
           <div className="result-card simulation-extra">
@@ -249,6 +293,7 @@ export default function SimulationResults() {
             <img src={zoomedImage} alt="Zoomed image" />
           </div>
         )}
+
     </section>
   );
 }
@@ -266,4 +311,49 @@ export default function SimulationResults() {
 <p>
   Browse each simulation as an individual cards.
 </p>
+*/
+
+
+/* Contribution try
+
+
+<div className="result-card simulation-extra">
+      <p>Contribution Plots (section still under construction)</p>
+      <img src={winterContribution} alt="" />
+  </div>
+
+
+//Contributions test.... 
+  const goPrevious = () => {
+    setActiveIndex((prev) =>
+      prev === 0 ? contributions.length - 1 : prev - 1
+    );
+  };
+
+  const goNext = () => {
+    setActiveIndex((prev) =>
+      prev === contributions.length - 1 ? 0 : prev + 1
+    );
+  };
+
+
+
+  <div className="plots-grid-contribution" key={`${currentSimulation.id}-${selectedSeason}`}>
+  {currentPlots.map((plot, index) => (
+    <figure
+      className="plot-card zoomable"
+      key={`${currentSimulation.id}-${selectedSeason}-plot-${index}`}
+      onClick={() => setZoomedImage(plot.src)}>
+     
+      <div className="plot-image-wrapper">
+        <img src={plot.src} alt={plot.caption} />
+        <div className="zoom-hint">Click to zoom</div>
+      </div>
+
+      <figcaption>{plot.caption}</figcaption>
+    </figure>
+   ))}
+  </div>
+
+
 */
